@@ -12,6 +12,7 @@
     "@react-navigation/native": "^6.1.1",
     "@react-navigation/native-stack": "^6.9.7",
     "@react-navigation/stack": "^6.3.10",
+    "@reduxjs/toolkit": "^1.9.1",
     "@sanity/client": "^3.4.1",
     "@sanity/image-url": "^1.0.1",
     "expo": "~47.0.9",
@@ -26,6 +27,7 @@
     "react-native-svg": "^13.6.0",
     "react-native-web": "~0.18.7",
     "react-navigation": "^4.4.4",
+    "react-redux": "^8.0.5",
     "tailwindcss-react-native": "^1.7.10"
   },
   "devDependencies": {

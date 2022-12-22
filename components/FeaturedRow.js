@@ -31,9 +31,9 @@ const FeaturedRow = ({id, title, description}) => {
     <View className="px-4 mt-4">
         <View className="flex-row justify-between">
             <Text className="font-bold text-xl">{title}</Text>
-            <ArrowRightIcon color="#00CCBB"/>
+            <ArrowRightIcon color="#f25f4c"/>
         </View>
-        <Text className="text-sm text-gray-500">{description}</Text>
+        <Text className="text-xs text-gray-500">{description}</Text>
         <ScrollView horizontal
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={{

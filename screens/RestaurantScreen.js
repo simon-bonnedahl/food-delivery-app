@@ -26,8 +26,8 @@ const RestaurantScreen = () => {
                     uri: urlFor(imgUrl).url()
                 }}
                 className="w-full h-56 bg-gray-300 p-4"/>
-                <TouchableOpacity className="absolute top-14 left-5 p-2 bg-gray-100 rounded-full" onPress={navigation.goBack}>
-                    <ArrowLeftIcon size={20} color="#00CCBB"></ArrowLeftIcon>
+                <TouchableOpacity className="absolute top-14 left-5 p-2 bg-light rounded-full" onPress={navigation.goBack}>
+                    <ArrowLeftIcon size={20} color="#f25f4c"></ArrowLeftIcon>
                 </TouchableOpacity>
             </View>
             <View className="bg-white">
@@ -35,9 +35,9 @@ const RestaurantScreen = () => {
                     <Text className="text-3xl font-bold">{title}</Text>
                     <View className="flex-row space-x-2 my-1">
                         <View className="flex-row items-center space-x-1">
-                            <StarIcon size={20} opacity={0.5} color="green"/>
+                            <StarIcon size={20} color="#f25f4c"/>
                             <Text className="text-xs text-gray-500">
-                                <Text className="text-green-500">{rating} </Text>
+                                <Text className="text-primary">{rating} </Text>
                                 • {genre}
                             </Text>
                         </View>
@@ -52,19 +52,19 @@ const RestaurantScreen = () => {
                     </Text>
                 </View>
                 <TouchableOpacity className="flex-row items-center p-4 space-x-2 border-y border-gray-300">
-                    <QuestionMarkCircleIcon color="gray" size={20} opacity={0.4}></QuestionMarkCircleIcon>
+                    <QuestionMarkCircleIcon color="gray" size={20} opacity={0.7}></QuestionMarkCircleIcon>
                     <Text className="pl-2 flex-1 text-md font-bold">Har du några allergier?</Text>
-                    <ChevronRightIcon color="#00CCBB" size={20}/>
+                    <ChevronRightIcon color="#f25f4c" size={20}/>
                 </TouchableOpacity>
             </View>
             <View>
                 <Text className="px-4 pt-6 mb-3 font-bold text-xl">
-                    Menu
+                    Meny
                 </Text>
                 {/*Dish rows*/}
                 <View className="px-4">
                     {dishes.map(item=>(
-                    <DishRow key={item._id} id={item._id} title={item.name} description={item.short_description} imgUrl={item.image}/>
+                    <DishRow key={item._id} id={item._id} title={item.name} description={item.short_description} imgUrl={item.image} price={item.price}/>
                 ))}
                 </View>
                 

@@ -15,11 +15,9 @@ const Categories = () => {
     }, [])
    
   return (
+    <View className="px-4">
+    <Text className="font-bold text-md pb-2 pt-4">Vad är du sugen på?</Text>
     <ScrollView 
-    contentContainerStyle={{
-      paddingHorizontal: 15,
-      paddingTop: 10,
-    }}
     horizontal
     showsHorizontalScrollIndicator={false}>
 
@@ -28,6 +26,7 @@ const Categories = () => {
         <CategoryCard key={item._id} imgUrl={item.image} title={item.name}/>      
       ))}
     </ScrollView>
+    </View>
   );
 };
 

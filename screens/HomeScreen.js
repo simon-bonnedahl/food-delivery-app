@@ -6,6 +6,8 @@ import {
     UserIcon,
     MagnifyingGlassIcon,
     AdjustmentsVerticalIcon,
+    Bars3Icon,
+    AdjustmentsHorizontalIcon,
  } from 'react-native-heroicons/solid'
 import Categories from '../components/Categories';
 import FeaturedRow from '../components/FeaturedRow';
@@ -40,40 +42,36 @@ const HomeScreen = () => {
     }, [])
     
   return (
-    <SafeAreaView className="bg-white pt-5">
+    <SafeAreaView className="pt-5 bg-primary">
 
         {/*Header*/}
         <View className='flex-row pb-3 items-center mx-4 space-x-2'>
-            <Image
-                source={{
-                    uri: 'https://links.papareact.com/wru',
-                }}
-                className='h-7 w-7 bg-gray-300 p-4 rounded-full'/>
+            <Bars3Icon className='p-4' color="white" size={30}/>
             <View className="flex-1">
-                <Text className="font-bold text-gray-400 text-xs">
+                <Text className="font-bold text-light text-xs">
                     Leverera nu!
                 </Text>
-                <Text className="font-bold text-xl">
+                <Text className="font-bold text-dark text-xl">
                 Nuvarande position
-                <ChevronDownIcon size={20} color="#00CCBB"/>
+                <ChevronDownIcon size={20} color="#fff"/>
                 </Text>
             </View>
-            <UserIcon size={35} color="#00CCBB"/>
+            <UserIcon size={35} color="#f25f4c"/>
         </View>
 
         {/*Search*/}
         <View className="flex-row items-center space-x-2 pb-2 mx-4">
-            <View className="flex-row flex-1 bg-gray-300 p-3 space-x-2">
+            <View className="flex-row flex-1 bg-light p-3 space-x-2 rounded-md">
                 <MagnifyingGlassIcon
                 color="gray"
                 size={20}/>
                 <TextInput placeholder='Sök på restauranger och kategorier'/>
             </View>
-            <AdjustmentsVerticalIcon  color="#00CCBB"/>
+            <AdjustmentsHorizontalIcon  color="#fff"/>
         </View>
     
         {/*Body*/}
-        <ScrollView className="bg-gray-100">
+        <ScrollView className="bg-light">
             {/*Categories*/}
             <Categories/>
         
