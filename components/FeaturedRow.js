@@ -48,6 +48,8 @@ const FeaturedRow = ({id, title, description}) => {
                     imgUrl={item.image}
                     rating={item.rating}
                     genre={item.type?.name}
+                    description={item.short_description}
+                    dishes={item.dishes}
                     address={item.address}
                     latitude={item.latitude}
                     longitude={item.longitude}/>

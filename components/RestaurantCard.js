@@ -4,9 +4,14 @@ import { StarIcon } from 'react-native-heroicons/solid'
 import { MapPinIcon } from 'react-native-heroicons/outline'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import { urlFor } from '../sanity'
-const RestaurantCard = ({id, title, imgUrl, rating, genre, address, latitude, longitude}) => {
+import { useNavigation } from '@react-navigation/native'
+const RestaurantCard = ({id, title, imgUrl, rating, genre, description, dishes, address, latitude, longitude}) => {
+
+    const navigation = useNavigation()
+
   return (
-    <TouchableOpacity className="w-64 h-60 mr-4 bg-white">
+    <TouchableOpacity className="w-64 h-60 mr-4 bg-white"
+        onPress={()=>{navigation.navigate("Restaurant", {id, title, imgUrl, rating, genre, description, dishes, address, latitude, longitude})}}>
         <Image
         className="w-64 h-36 rounded-sm"
         source={{

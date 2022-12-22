@@ -51,10 +51,10 @@ const HomeScreen = () => {
                 className='h-7 w-7 bg-gray-300 p-4 rounded-full'/>
             <View className="flex-1">
                 <Text className="font-bold text-gray-400 text-xs">
-                    Deliver Now!
+                    Leverera nu!
                 </Text>
                 <Text className="font-bold text-xl">
-                Current Location
+                Nuvarande position
                 <ChevronDownIcon size={20} color="#00CCBB"/>
                 </Text>
             </View>
@@ -67,7 +67,7 @@ const HomeScreen = () => {
                 <MagnifyingGlassIcon
                 color="gray"
                 size={20}/>
-                <TextInput placeholder='Search for restaurants or cousines'/>
+                <TextInput placeholder='Sök på restauranger och kategorier'/>
             </View>
             <AdjustmentsVerticalIcon  color="#00CCBB"/>
         </View>
