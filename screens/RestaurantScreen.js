@@ -1,5 +1,5 @@
 import { View, Text, Image } from 'react-native'
-import React, { useLayoutEffect } from 'react'
+import React, { useEffect, useLayoutEffect } from 'react'
 import { useNavigation, useRoute } from '@react-navigation/native'
 import { ScrollView } from 'react-native'
 import { urlFor } from '../sanity'
@@ -8,9 +8,13 @@ import { ArrowLeftIcon, ChevronRightIcon, MapPinIcon, StarIcon } from 'react-nat
 import { QuestionMarkCircleIcon } from 'react-native-heroicons/outline'
 import DishRow from '../components/DishRow'
 import Basket from '../components/Basket'
+import { selectBasketItems } from '../features/basketSlice'
+import { setRestaurant } from '../features/restaurantSlice'
+import { useDispatch } from 'react-redux'
 
 const RestaurantScreen = () => {
     const navigation = useNavigation()
+    const dispatch = useDispatch()
 
      useLayoutEffect(() => {
         navigation.setOptions({
@@ -19,7 +23,12 @@ const RestaurantScreen = () => {
     }, []);
 
     const { params:{id, title, imgUrl, rating, description, genre, dishes, address, latitude, longitude}} = useRoute()
-  return (
+   
+    useEffect(()=>{
+        dispatch(setRestaurant({id, title, imgUrl, rating, description, genre, dishes, address, latitude, longitude}))
+    }, [])
+
+    return (
         <>  
             <Basket/>
             <ScrollView>
@@ -39,22 +48,22 @@ const RestaurantScreen = () => {
                         <View className="flex-row space-x-2 my-1">
                             <View className="flex-row items-center space-x-1">
                                 <StarIcon size={20} color="#f25f4c"/>
-                                <Text className="text-xs text-gray-500">
+                                <Text className="text-xs text-lightgray">
                                     <Text className="text-primary">{rating} </Text>
                                     • {genre}
                                 </Text>
                             </View>
                             <View className="flex-row items-center space-x-1">
                                 <MapPinIcon size={20}  color="gray"/>
-                                <Text className="text-xs text-gray-500">{address}
+                                <Text className="text-xs text-lightgray">{address}
                                 </Text>
                             </View>
                         </View>
-                        <Text className="text-xs text-gray-500 mt-2 pb-4">
+                        <Text className="text-xs text-lightgray mt-2 pb-4">
                             {description}
                         </Text>
                     </View>
-                    <TouchableOpacity className="flex-row items-center p-4 space-x-2 border-y border-gray-300">
+                    <TouchableOpacity className="flex-row items-center p-4 space-x-2 border-y border">
                         <QuestionMarkCircleIcon color="gray" size={20} opacity={0.7}></QuestionMarkCircleIcon>
                         <Text className="pl-2 flex-1 text-md font-bold">Har du några allergier?</Text>
                         <ChevronRightIcon color="#f25f4c" size={20}/>
@@ -66,7 +75,7 @@ const RestaurantScreen = () => {
                     </Text>
                     {/*Dish rows*/}
                     <View className="px-4 pb-36">
-                        {dishes.map(item=>(
+                        {dishes?.map(item=>(
                         <DishRow key={item._id} id={item._id} title={item.name} description={item.short_description} imgUrl={item.image} price={item.price}/>
                     ))}
                     </View>

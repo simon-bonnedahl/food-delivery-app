@@ -1,4 +1,4 @@
-import { View, Text, SafeAreaView, Image, TextInput, ScrollView } from 'react-native'
+import { View, Text, SafeAreaView, Image, TextInput, ScrollView, TouchableOpacity } from 'react-native'
 import React, { useEffect, useLayoutEffect, useState } from 'react'
 import { useNavigation } from '@react-navigation/native';
 import { 
@@ -58,9 +58,15 @@ const HomeScreen = () => {
                 <ChevronDownIcon size={20} color="#fff"/>
                 </Text>
             </View>
-            <ShoppingBagIcon size={24} color="#fff"/>
-            
-            <Text className="text-light">{items.length}</Text>
+            <View className="flex-row">    
+                <View className="border border-light rounded-full w-4 h-4 items-center justify-center">
+                    <Text className="text-light text-xs">{items.length}</Text> 
+                </View>
+                <TouchableOpacity onPress={() => {navigation.navigate("Basket")}}>
+                    <ShoppingBagIcon size={24} color="#fff"/>
+                </TouchableOpacity>
+                
+            </View>
         </View>
 
         {/*Search*/}
@@ -75,19 +81,21 @@ const HomeScreen = () => {
         </View>
     
         {/*Body*/}
-        <ScrollView className="bg-light">
+        <ScrollView className="bg-background">
             {/*Categories*/}
             <Categories/>
         
             {/*Featured*/}
-            {featured?.map(item =>(
-                <FeaturedRow
-                    key={item._id}
-                    id={item._id}
-                    title={item.name}
-                    description={item.short_description}
-                    />
-            ))}
+            <View className="pb-36">
+                {featured?.map(item =>(
+                    <FeaturedRow
+                        key={item._id}
+                        id={item._id}
+                        title={item.name}
+                        description={item.short_description}
+                        />
+                ))}
+            </View>
         </ScrollView>
 
     </SafeAreaView>

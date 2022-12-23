@@ -9,10 +9,10 @@ const RestaurantCard = ({id, title, imgUrl, rating, genre, description, dishes, 
     const navigation = useNavigation()
 
   return (
-    <TouchableOpacity className="w-64 h-60 mr-4"
+    <TouchableOpacity className="w-64 h-60 mr-4 bg-light drop-shadow-xl rounded-lg"
         onPress={()=>{navigation.navigate("Restaurant", {id, title, imgUrl, rating, genre, description, dishes, address, latitude, longitude})}}>
         <Image
-        className="w-64 h-36 rounded-sm"
+        className="w-64 h-36 rounded-lg"
         source={{
             uri: urlFor(imgUrl).url(),
         }}/>
@@ -20,13 +20,13 @@ const RestaurantCard = ({id, title, imgUrl, rating, genre, description, dishes, 
             <Text className="font-bold text-lg pt-2">{title}</Text>
             <View className="flex-row items-center space-x-1 ">
                 <StarIcon color="#f25f4c" size={22}/>
-                <Text className="text-xs text-gray-500">
+                <Text className="text-xs text-lightgray">
                     <Text className="text-primary">{rating}</Text> • {genre}
                 </Text>
             </View>
             <View className="flex-row items-center space-x-1">
                 <MapPinIcon color="gray" size={22}/>
-                <Text className="text-xs text-gray-500">{address}</Text>
+                <Text className="text-xs text-lightgray">{address}</Text>
             </View>
         </View>
      
