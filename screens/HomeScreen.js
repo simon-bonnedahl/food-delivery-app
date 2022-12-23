@@ -8,16 +8,18 @@ import {
     AdjustmentsVerticalIcon,
     Bars3Icon,
     AdjustmentsHorizontalIcon,
+    ShoppingBagIcon,
  } from 'react-native-heroicons/solid'
 import Categories from '../components/Categories';
 import FeaturedRow from '../components/FeaturedRow';
 import sanityClient from '../sanity'
+import { useSelector } from 'react-redux';
+import { selectBasketItems } from '../features/basketSlice';
 
 const HomeScreen = () => {
     const navigation = useNavigation();
-    const [categories, setCategories] = useState([])
     const [featured, setFeatured] = useState([])
-    
+    const items = useSelector(selectBasketItems)
 
     useLayoutEffect(() => {
         navigation.setOptions({
@@ -56,7 +58,9 @@ const HomeScreen = () => {
                 <ChevronDownIcon size={20} color="#fff"/>
                 </Text>
             </View>
-            <UserIcon size={35} color="#f25f4c"/>
+            <ShoppingBagIcon size={24} color="#fff"/>
+            
+            <Text className="text-light">{items.length}</Text>
         </View>
 
         {/*Search*/}
