@@ -8,7 +8,11 @@ import {
 } from "react-native";
 import React, { useMemo, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
-import { selectBasketItems, selectBasketTotal } from "../features/basketSlice";
+import {
+  removeFromBasket,
+  selectBasketItems,
+  selectBasketTotal,
+} from "../features/basketSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { selectRestaurant } from "../features/restaurantSlice";
 import { XCircleIcon } from "react-native-heroicons/solid";
@@ -30,9 +34,6 @@ const BasketScreen = () => {
     setGroupedItemsInBasket(groupedItems);
   }, [items]);
 
-  const removeItemFromBasket = (id) => {
-    dispatch(removeItemFromBasket({ id }));
-  };
   return (
     <SafeAreaView className="flex-1 bg-background">
       <View className="flex-1 bg-background">
@@ -82,7 +83,7 @@ const BasketScreen = () => {
               <Text className="flex-1 text-xs">{items[0]?.title}</Text>
               <Text className="text-xs">{items[0]?.price} kr</Text>
               <TouchableOpacity
-                onPress={() => removeItemFromBasket(items[0]?.id)}
+                onPress={() => dispatch(removeFromBasket({ id: key }))}
               >
                 <Text className="text-primary">Remove</Text>
               </TouchableOpacity>
@@ -104,7 +105,10 @@ const BasketScreen = () => {
             <Text>Total</Text>
             <Text className="font-extrabold">{orderTotal + 59} kr</Text>
           </View>
-          <TouchableOpacity className="rounded-lg bg-primary p-4">
+          <TouchableOpacity
+            onPress={() => navigation.navigate("PreparingOrder")}
+            className="rounded-lg bg-primary p-5"
+          >
             <Text className="text-light text-center font-bold text-md">
               Skicka order
             </Text>
