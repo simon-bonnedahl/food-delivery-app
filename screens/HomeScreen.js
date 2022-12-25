@@ -2,7 +2,6 @@ import {
   View,
   Text,
   SafeAreaView,
-  Image,
   TextInput,
   ScrollView,
   TouchableOpacity,
@@ -11,9 +10,7 @@ import React, { useEffect, useLayoutEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import {
   ChevronDownIcon,
-  UserIcon,
   MagnifyingGlassIcon,
-  AdjustmentsVerticalIcon,
   Bars3Icon,
   AdjustmentsHorizontalIcon,
   ShoppingBagIcon,
@@ -58,7 +55,10 @@ const HomeScreen = () => {
     <SafeAreaView className="pt-5 bg-primary">
       {/*Header*/}
       <View className="flex-row pb-3 items-center mx-4 space-x-2">
-        <Bars3Icon className="p-4" color="white" size={30} />
+        <TouchableOpacity onPress={() => navigation.toggleDrawer()}>
+          <Bars3Icon className="p-4" color="white" size={30} />
+        </TouchableOpacity>
+
         <View className="flex-1">
           <Text className="font-bold text-light text-xs">Leverera nu!</Text>
           <Text className="font-bold text-dark text-xl">
