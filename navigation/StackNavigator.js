@@ -12,7 +12,7 @@ import SettingsScreen from "../screens/SettingsScreen";
 
 const Stack = createStackNavigator();
 
-defaultScreenOptions = {
+const defaultScreenOptions = {
   headerShown: false,
 };
 
