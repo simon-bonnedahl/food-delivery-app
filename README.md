@@ -1,5 +1,5 @@
 # food-delivery-app
-<img src="https://github.com/simon-bonnedahl/food-delivery-app/blob/main/demo.gif" width="100">
+<img src="https://github.com/simon-bonnedahl/food-delivery-app/blob/main/demo.gif" width="200">
 
 
 # Tools
